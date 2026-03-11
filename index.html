@@ -6,7 +6,7 @@
   <title>Vivian Feng - Product Manager</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&family=Urbanist:wght@200;300;400;500&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -613,8 +613,16 @@
       nav.classList.toggle('scrolled', window.scrollY > 20);
     });
 
-
     function toggleProject(card) {
       const isOpen = card.classList.contains('open');
       // Close all open cards
-      document.querySelectorAll('.side-project-card.open').forEach(c => c.cla
+      document.querySelectorAll('.side-project-card.open').forEach(c => c.classList.remove('open'));
+      // Open clicked card if it wasn't open
+      if (!isOpen) {
+        card.classList.add('open');
+      }
+    }
+  </script>
+
+</body>
+</html>
