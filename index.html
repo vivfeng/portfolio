@@ -248,7 +248,7 @@
       margin: 0 2.5rem;
     }
     .side-project-card.open .side-project-body {
-      max-height: 1000px;
+      max-height: 2000px;
       padding: 0 2.5rem 2.5rem;
       border-top: 1px solid var(--rule);
     }
@@ -313,6 +313,26 @@
       color: var(--ink-light);
       line-height: 1.7;
       font-style: italic;
+    }
+
+    .spb-demo {
+      grid-column: 1 / -1;
+      margin-bottom: 0.5rem;
+    }
+
+    .spb-demo img {
+      width: 100%;
+      border: 1px solid var(--rule);
+      display: block;
+    }
+
+    .spb-demo-label {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 0.65rem;
     }
 
     @media (max-width: 700px) {
@@ -405,32 +425,36 @@
       <div class="side-projects-grid">
 
         <!-- SKI FINDER -->
-        <div class="side-project-card" data-project-name="findmyski" onclick="toggleProject(this)">
+        <div class="side-project-card open" data-project-name="findmyski" onclick="toggleProject(this)">
           <div class="side-project-header">
             <div class="side-project-left">
-              <p class="side-project-tag">Web App · Generative AI · Python</p>
-              <h3 class="side-project-title">Ski Selector</h3>
-              <p class="side-project-subtitle">A generative AI tool that recommends the right ski for you and explains exactly why, drawing on curated retailer data and expert perspectives</p>
+              <p class="side-project-tag">Web App · Generative AI · React</p>
+              <h3 class="side-project-title">FindMySki</h3>
+              <p class="side-project-subtitle">An AI-powered ski recommender that walks you through a short intake, then explains exactly which ski to buy and why — drawing on curated expert reviews and retailer data</p>
             </div>
             <div class="expand-icon">+</div>
           </div>
           <div class="side-project-body">
             <div class="side-project-body-inner">
+              <div class="spb-demo">
+                <p class="spb-demo-label">Demo</p>
+                <img src="findmyski-demo.gif" alt="FindMySki demo — walking through the 7-question intake and receiving a personalized ski recommendation" loading="lazy" />
+              </div>
               <div>
                 <p class="spb-section-label">The Problem</p>
-                <p class="spb-text">As someone who skis a lot, I kept getting asked by friends what ski to buy. I'd give an opinion but realized I was just guessing based on my own experience. The real problem is that ski selection is genuinely complex: it depends on ability level, skiing style, terrain preference, and budget. Existing tools either oversimplify to a few dropdowns or dump a spec sheet on you with no guidance on what actually matters.</p>
+                <p class="spb-text">As someone who skis a lot, I kept getting asked by friends what ski to buy. I'd give an opinion but realized I was just guessing based on my own experience. Ski selection is genuinely complex — it depends on ability level, skiing style, body type, terrain preference, and budget. Existing tools either oversimplify to a few dropdowns or dump a spec sheet on you with no guidance on what actually matters.</p>
               </div>
               <div>
                 <p class="spb-section-label">What I Built</p>
-                <p class="spb-text">A web app that walks users through a short intake flow about their ability, goals, terrain, and budget. It uses RAG to pull from a curated knowledge base of retailer reviews and expert ski guides, then uses an LLM to synthesize a recommendation with a plain-English explanation tailored to that specific person. I intentionally made the reasoning more prominent than the recommendation itself, because that's what actually helps someone feel confident in the purchase.</p>
+                <p class="spb-text">A web app that walks you through a short intake about your ability, goals, body type, and budget. It uses RAG to pull from a curated knowledge base of expert ski reviews (OutdoorGearLab, SKI Magazine, Blister, Switchback Travel, and more), then uses an LLM to synthesize a personalized recommendation with a plain-English explanation. I intentionally made the reasoning more prominent than the recommendation itself — because that's what actually helps someone feel confident in the purchase. Results can be shared via link or emailed directly.</p>
                 <div class="spb-stack">
-                  <span class="spb-tag">Python</span>
+                  <span class="spb-tag">React</span>
                   <span class="spb-tag">Generative AI</span>
                   <span class="spb-tag">RAG</span>
                   <span class="spb-tag">Web App</span>
                 </div>
-                <a href="https://findmyskis.org" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" data-analytics-event="project_link_clicked" data-analytics-project="findmyski" data-analytics-target="site" style="display:inline-flex;align-items:center;gap:0.4rem;margin-top:1rem;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:0.15rem;">
-                  Visit findmyskis.org ↗
+                <a href="https://findmyski.org" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" data-analytics-event="project_link_clicked" data-analytics-project="findmyski" data-analytics-target="site" style="display:inline-flex;align-items:center;gap:0.4rem;margin-top:1rem;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:0.15rem;">
+                  Visit findmyski.org ↗
                 </a>
               </div>
               <div class="spb-insight">
@@ -442,29 +466,34 @@
         </div>
 
         <!-- BIKE ROUTE BUILDER -->
-        <div class="side-project-card" data-project-name="routa" onclick="toggleProject(this)">
+        <div class="side-project-card open" data-project-name="routa" onclick="toggleProject(this)">
           <div class="side-project-header">
             <div class="side-project-left">
-              <p class="side-project-tag">Web App · Routing · Cycling</p>
-              <h3 class="side-project-title">SF Road Bike Router</h3>
-              <p class="side-project-subtitle">A route planning tool built for road cyclists who are tired of being sent up hills and through busy intersections by apps that don't understand how road biking actually works</p>
+              <p class="side-project-tag">Web App · NLP · Mapping · Cycling</p>
+              <h3 class="side-project-title">RideRouta</h3>
+              <p class="side-project-subtitle">A ride planning tool that lets road cyclists create routes with ease — describe your ideal ride in plain English, or use the form for more control</p>
             </div>
             <div class="expand-icon">+</div>
           </div>
           <div class="side-project-body">
             <div class="side-project-body-inner">
+              <div class="spb-demo">
+                <p class="spb-demo-label">Demo</p>
+                <img src="routa-demo.gif" alt="RideRouta demo — describing a ride in plain English and generating a route with map, elevation, and Strava export" loading="lazy" />
+              </div>
               <div>
                 <p class="spb-section-label">The Problem</p>
                 <p class="spb-text">Strava and most GPX tools optimize for distance and connectivity, not ride quality. For road biking specifically, that means you regularly get routed up punishing climbs you didn't ask for, through intersections with heavy car traffic, or onto roads with no shoulder. Every time I wanted to explore a new route around SF I'd spend 30+ minutes in Strava manually adjusting, cross-referencing Google Maps, and checking Street View just to sanity-check the road conditions. It was a whole process before I even got on the bike.</p>
               </div>
               <div>
                 <p class="spb-section-label">What I Built</p>
-                <p class="spb-text">A web app where you set a start point, target distance, and preferred effort level, and it generates a route optimized for road cycling — lower traffic streets, manageable elevation, and roads that are actually pleasant to ride. It exports directly to GPX so I can load it onto my Garmin without any extra steps. The whole point was to eliminate the 30-minute pre-ride planning ritual and just get out the door.</p>
+                <p class="spb-text">A web app where you describe your ideal ride in plain English — or use a form for more control — and it generates a route optimized for road cycling: lower traffic streets, manageable elevation, and roads that are actually pleasant to ride. It connects directly to Strava, exports to GPX for Garmin, and shows elevation profiles so you know what you're getting into before you clip in. The whole point was to eliminate the 30-minute pre-ride planning ritual and just get out the door.</p>
                 <div class="spb-stack">
-                  <span class="spb-tag">Python</span>
+                  <span class="spb-tag">React</span>
+                  <span class="spb-tag">NLP</span>
                   <span class="spb-tag">Mapping API</span>
+                  <span class="spb-tag">Strava API</span>
                   <span class="spb-tag">GPX Export</span>
-                  <span class="spb-tag">Web App</span>
                 </div>
                 <a href="https://riderouta.org" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" data-analytics-event="project_link_clicked" data-analytics-project="routa" data-analytics-target="site" style="display:inline-flex;align-items:center;gap:0.4rem;margin-top:1rem;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:0.15rem;">
                   Visit riderouta.org ↗
@@ -657,14 +686,9 @@
 
     function toggleProject(card) {
       const isOpen = card.classList.contains('open');
-      // Close all open cards
-      document.querySelectorAll('.side-project-card.open').forEach(c => c.classList.remove('open'));
-      // Open clicked card if it wasn't open
-      if (!isOpen) {
-        card.classList.add('open');
-        if (card.dataset.projectName) {
-          trackEvent('project_opened', { project: card.dataset.projectName });
-        }
+      card.classList.toggle('open');
+      if (!isOpen && card.dataset.projectName) {
+        trackEvent('project_opened', { project: card.dataset.projectName });
       }
     }
   </script>
