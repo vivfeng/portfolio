@@ -11,9 +11,14 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://vivfeng.github.io/portfolio/" />
   <meta property="og:site_name" content="Vivian Feng Portfolio" />
-  <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Vivian Feng's Portfolio" />
   <meta name="twitter:description" content="Personal portfolio of Vivian Feng, featuring product management experience, AI work, and side projects built end-to-end." />
+  <meta property="og:image" content="https://vivfeng.github.io/portfolio/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://vivfeng.github.io/portfolio/og-image.jpg" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&family=Urbanist:wght@200;300;400;500&display=swap" rel="stylesheet" />
@@ -67,7 +72,7 @@
     }
     .nav-links a:hover { color: var(--accent); }
 
-    section { padding: 7rem 3rem; }
+    section { padding: 5rem 3rem; }
     .container { max-width: 900px; margin: 0 auto; }
 
     #hero { min-height: 100vh; display: flex; align-items: center; padding-top: 6rem; }
@@ -173,7 +178,7 @@
     @media (max-width: 700px) {
       nav { padding: 1rem 1.5rem; }
       .nav-links { gap: 1.5rem; }
-      section { padding: 5rem 1.5rem; }
+      section { padding: 3.5rem 1.5rem; }
       .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
       .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       footer { flex-direction: column; gap: 0.5rem; text-align: center; }
@@ -221,6 +226,21 @@
       margin-top: 0.35rem;
     }
 
+    .expand-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      flex-shrink: 0;
+    }
+    .expand-label {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      transition: opacity 0.25s;
+    }
+    .side-project-card.open .expand-label { opacity: 0; }
     .expand-icon {
       width: 32px;
       height: 32px;
@@ -432,7 +452,7 @@
               <h3 class="side-project-title">FindMySki</h3>
               <p class="side-project-subtitle">An AI-powered ski recommender that walks you through a short intake, then explains exactly which ski to buy and why, drawing on curated expert reviews and retailer data</p>
             </div>
-            <div class="expand-icon">+</div>
+            <div class="expand-toggle"><span class="expand-label">View details</span><div class="expand-icon">+</div></div>
           </div>
           <div class="side-project-body">
             <div class="side-project-body-inner">
@@ -473,7 +493,7 @@
               <h3 class="side-project-title">RideRouta</h3>
               <p class="side-project-subtitle">A ride planning tool that lets road cyclists create routes by describing their ideal ride in plain English or using a form for more control</p>
             </div>
-            <div class="expand-icon">+</div>
+            <div class="expand-toggle"><span class="expand-label">View details</span><div class="expand-icon">+</div></div>
           </div>
           <div class="side-project-body">
             <div class="side-project-body-inner">
@@ -536,7 +556,7 @@
 
       <div class="about-grid">
         <div class="about-photo">
-          <img src="Headshot_VivianFeng_bw.jpg" alt="Vivian Feng" style="width:100%; display:block; filter:grayscale(100%);" />
+          <img src="Headshot_VivianFeng_bw.jpg" alt="Vivian Feng" loading="lazy" style="width:100%; display:block; filter:grayscale(100%);" />
         </div>
         <div class="about-text">
           <p>
@@ -577,8 +597,13 @@
             <span class="tag">DatoCMS</span>
             <span class="tag">Django</span>
           </div>
-          <p class="skills-section-title" style="margin-top:1.5rem;">Recognition</p>
+          <p class="skills-section-title" style="margin-top:1.5rem;">Community & Recognition</p>
           <div class="skills-list">
+            <div class="skill-row" style="flex-direction:column; align-items:flex-start; gap:0.15rem; padding:0.75rem 0;">
+              <span style="font-size:0.85rem; font-weight:400;">SF Host, Zero to Agent (v0 &ndash; Vercel)</span>
+              <span style="font-family:var(--mono); font-size:0.6rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent);">April 2026</span>
+              <span style="font-size:0.82rem; color:var(--ink-light);">Organized SF event on building AI agents with Vercel's tooling.</span>
+            </div>
             <div class="skill-row" style="flex-direction:column; align-items:flex-start; gap:0.15rem; padding:0.75rem 0;">
               <span style="font-size:0.85rem; font-weight:400;">Climatebase Fellow, Cohort 6</span>
               <span style="font-family:var(--mono); font-size:0.6rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent);">2024</span>
@@ -586,7 +611,7 @@
             </div>
             <div class="skill-row" style="flex-direction:column; align-items:flex-start; gap:0.15rem; padding:0.75rem 0;">
               <span style="font-size:0.85rem; font-weight:400;">1st Place, Global Product Pitch Competition</span>
-              <span style="font-family:var(--mono); font-size:0.6rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent);">J.P. Morgan · 2023</span>
+              <span style="font-family:var(--mono); font-size:0.6rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent);">J.P. Morgan &middot; 2023</span>
               <span style="font-size:0.82rem; color:var(--ink-light);">Won internationally across all J.P. Morgan product teams with an LLM MVP design.</span>
             </div>
           </div>
