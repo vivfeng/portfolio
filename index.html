@@ -229,34 +229,46 @@
     .expand-toggle {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.5rem;
       flex-shrink: 0;
+      padding: 0.45rem 0.9rem 0.45rem 1rem;
+      border: 1px solid var(--rule);
+      transition: all 0.25s;
     }
+    .expand-toggle:hover { border-color: var(--accent); }
     .expand-label {
       font-family: var(--mono);
       font-size: 0.58rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--ink-light);
-      transition: opacity 0.25s;
+      transition: color 0.25s;
     }
-    .side-project-card.open .expand-label { opacity: 0; }
+    .expand-toggle:hover .expand-label { color: var(--accent); }
+    .side-project-card.open .expand-label { display: none; }
+    .side-project-card.open .expand-toggle {
+      padding: 0;
+      border-color: transparent;
+    }
+    .side-project-card.open .expand-toggle:hover { border-color: transparent; }
     .expand-icon {
-      width: 32px;
-      height: 32px;
-      border: 1px solid var(--rule);
+      width: 28px;
+      height: 28px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
       transition: all 0.25s;
-      font-size: 1rem;
+      font-size: 0.9rem;
       color: var(--ink-light);
     }
+    .expand-toggle:hover .expand-icon { color: var(--accent); }
     .side-project-card.open .expand-icon {
+      width: 32px;
+      height: 32px;
       background: var(--ink);
       color: var(--bg);
-      border-color: var(--ink);
+      border: 1px solid var(--ink);
       transform: rotate(45deg);
     }
 
@@ -440,56 +452,15 @@
         <div class="section-rule"></div>
       </div>
 
-      <p style="font-size:0.9rem; color:var(--ink-light); margin-bottom:2.5rem; max-width:560px; line-height:1.75;">At work, I've built agents for bug filing, PRD generation, and user interview summarization. This space highlights what I build for fun. Both of these started as personal frustrations and turned into products I actually use, and how I learned to build end-to-end, from scoping and design through to deployment.</p>
+      <p style="font-size:0.9rem; color:var(--ink-light); margin-bottom:2.5rem; max-width:560px; line-height:1.75;">At work, I've built agents for bug filing, PRD generation, and user interview summarization. This space highlights what I build on my own time — passion projects I scoped, designed, and shipped end-to-end.</p>
 
       <div class="side-projects-grid">
 
-        <!-- SKI FINDER -->
-        <div class="side-project-card open" data-project-name="findmyski" onclick="toggleProject(this)">
-          <div class="side-project-header">
-            <div class="side-project-left">
-              <p class="side-project-tag">Web App · Generative AI · React</p>
-              <h3 class="side-project-title">FindMySki</h3>
-              <p class="side-project-subtitle">An AI-powered ski recommender that walks you through a short intake, then explains exactly which ski to buy and why, drawing on curated expert reviews and retailer data</p>
-            </div>
-            <div class="expand-toggle"><span class="expand-label">View details</span><div class="expand-icon">+</div></div>
-          </div>
-          <div class="side-project-body">
-            <div class="side-project-body-inner">
-              <div class="spb-demo">
-                <p class="spb-demo-label">Demo</p>
-                <img src="findmyski-demo.gif" alt="FindMySki demo — walking through the 7-question intake and receiving a personalized ski recommendation" loading="lazy" />
-              </div>
-              <div>
-                <p class="spb-section-label">The Problem</p>
-                <p class="spb-text">As someone who skis a lot, I kept getting asked by friends what ski to buy. I'd give an opinion but realized I was just guessing based on my own experience. Ski selection is genuinely complex. It depends on ability level, skiing style, body type, terrain preference, and budget. Existing tools either oversimplify to a few dropdowns or dump a spec sheet on you with no guidance on what actually matters.</p>
-              </div>
-              <div>
-                <p class="spb-section-label">What I Built</p>
-                <p class="spb-text">A web app that walks you through a short intake about your ability, goals, body type, and budget. It uses RAG to pull from a curated knowledge base of expert ski reviews (OutdoorGearLab, SKI Magazine, Blister, Switchback Travel, and more), then uses an LLM to synthesize a personalized recommendation with a plain-English explanation. I intentionally made the reasoning more prominent than the recommendation itself, because that's what actually helps someone feel confident in the purchase. Results can be shared via link or emailed directly.</p>
-                <div class="spb-stack">
-                  <span class="spb-tag">React</span>
-                  <span class="spb-tag">Generative AI</span>
-                  <span class="spb-tag">RAG</span>
-                  <span class="spb-tag">Web App</span>
-                </div>
-                <a href="https://findmyskis.org" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" data-analytics-event="project_link_clicked" data-analytics-project="findmyski" data-analytics-target="site" style="display:inline-flex;align-items:center;gap:0.4rem;margin-top:1rem;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:0.15rem;">
-                  Visit findmyskis.org ↗
-                </a>
-              </div>
-              <div class="spb-insight">
-                <p class="spb-insight-label">PM Instinct Behind It</p>
-                <p class="spb-insight-text">"When you're the workaround people use because the real tool doesn't exist, that's a product gap worth filling. The key insight from talking to people was that they didn't distrust the recommendation, they just didn't know how to evaluate it. Explaining the 'why' in plain language is what actually builds confidence, so I made it the centerpiece rather than an afterthought."</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <!-- BIKE ROUTE BUILDER -->
-        <div class="side-project-card open" data-project-name="routa" onclick="toggleProject(this)">
+        <div class="side-project-card" data-project-name="routa" onclick="toggleProject(this)">
           <div class="side-project-header">
             <div class="side-project-left">
-              <p class="side-project-tag">Web App · NLP · Mapping · Cycling</p>
+              <p class="side-project-tag">Route Planning · NLP · Mapping</p>
               <h3 class="side-project-title">RideRouta</h3>
               <p class="side-project-subtitle">A ride planning tool that lets road cyclists create routes by describing their ideal ride in plain English or using a form for more control</p>
             </div>
@@ -527,6 +498,84 @@
           </div>
         </div>
 
+        <!-- EMISSION FACTOR COMPARATOR -->
+        <div class="side-project-card" data-project-name="emissions" onclick="toggleProject(this)">
+          <div class="side-project-header">
+            <div class="side-project-left">
+              <p class="side-project-tag">Research Tool · Sustainability · Data</p>
+              <h3 class="side-project-title">Emission Factor Comparator</h3>
+              <p class="side-project-subtitle">An interactive tool for sustainability professionals to compare carbon emission factors across EPA, DEFRA, and GHG Protocol databases and understand where the numbers actually come from</p>
+            </div>
+            <div class="expand-toggle"><span class="expand-label">View details</span><div class="expand-icon">+</div></div>
+          </div>
+          <div class="side-project-body">
+            <div class="side-project-body-inner">
+              <div>
+                <p class="spb-section-label">The Problem</p>
+                <p class="spb-text">Carbon accounting teams rely on emission factor databases to estimate their footprint, but the three major sources — EPA, DEFRA, and GHG Protocol — often disagree significantly. Some activities show nearly 99% variance between sources, and it's not obvious why. Worse, some databases cite each other without adding independent data, creating circular sourcing that inflates false confidence. Teams end up picking a database without understanding the tradeoffs.</p>
+              </div>
+              <div>
+                <p class="spb-section-label">What I Built</p>
+                <p class="spb-text">An interactive dashboard that compares 21 activities across 8 multi-source datasets spanning 5 countries. It maps citation relationships to expose circular sourcing, shows range comparisons across databases, and compares activity-based vs. spend-based calculation methods — revealing gaps as large as 3.3x depending on methodology. The tool includes a recommended stack for which database to use and when, grounded in geography, methodology, and data independence.</p>
+                <div class="spb-stack">
+                  <span class="spb-tag">Next.js</span>
+                  <span class="spb-tag">React</span>
+                  <span class="spb-tag">Data Visualization</span>
+                  <span class="spb-tag">Sustainability</span>
+                </div>
+                <a href="https://vivfeng.github.io/emissions_sources/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" data-analytics-event="project_link_clicked" data-analytics-project="emissions" data-analytics-target="site" style="display:inline-flex;align-items:center;gap:0.4rem;margin-top:1rem;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:0.15rem;">
+                  View the comparator ↗
+                </a>
+              </div>
+              <div class="spb-insight">
+                <p class="spb-insight-label">PM Instinct Behind It</p>
+                <p class="spb-insight-text">"Most sustainability tools present emission factors as settled numbers, but the real problem is that practitioners don't know whether to trust them or which source to pick. I focused on making the provenance and methodology visible rather than just showing the numbers — because understanding where data comes from is what actually enables better decisions."</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- SKI FINDER -->
+        <div class="side-project-card" data-project-name="findmyski" onclick="toggleProject(this)">
+          <div class="side-project-header">
+            <div class="side-project-left">
+              <p class="side-project-tag">AI Recommender · React · RAG</p>
+              <h3 class="side-project-title">FindMySki</h3>
+              <p class="side-project-subtitle">An AI-powered ski recommender that walks you through a short intake, then explains exactly which ski to buy and why, drawing on curated expert reviews and retailer data</p>
+            </div>
+            <div class="expand-toggle"><span class="expand-label">View details</span><div class="expand-icon">+</div></div>
+          </div>
+          <div class="side-project-body">
+            <div class="side-project-body-inner">
+              <div class="spb-demo">
+                <p class="spb-demo-label">Demo</p>
+                <img src="findmyski-demo.gif" alt="FindMySki demo — walking through the 7-question intake and receiving a personalized ski recommendation" loading="lazy" />
+              </div>
+              <div>
+                <p class="spb-section-label">The Problem</p>
+                <p class="spb-text">As someone who skis a lot, I kept getting asked by friends what ski to buy. I'd give an opinion but realized I was just guessing based on my own experience. Ski selection is genuinely complex. It depends on ability level, skiing style, body type, terrain preference, and budget. Existing tools either oversimplify to a few dropdowns or dump a spec sheet on you with no guidance on what actually matters.</p>
+              </div>
+              <div>
+                <p class="spb-section-label">What I Built</p>
+                <p class="spb-text">A web app that walks you through a short intake about your ability, goals, body type, and budget. It uses RAG to pull from a curated knowledge base of expert ski reviews (OutdoorGearLab, SKI Magazine, Blister, Switchback Travel, and more), then uses an LLM to synthesize a personalized recommendation with a plain-English explanation. I intentionally made the reasoning more prominent than the recommendation itself, because that's what actually helps someone feel confident in the purchase. Results can be shared via link or emailed directly.</p>
+                <div class="spb-stack">
+                  <span class="spb-tag">React</span>
+                  <span class="spb-tag">Generative AI</span>
+                  <span class="spb-tag">RAG</span>
+                  <span class="spb-tag">Web App</span>
+                </div>
+                <a href="https://findmyskis.org" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" data-analytics-event="project_link_clicked" data-analytics-project="findmyski" data-analytics-target="site" style="display:inline-flex;align-items:center;gap:0.4rem;margin-top:1rem;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:0.15rem;">
+                  Visit findmyskis.org ↗
+                </a>
+              </div>
+              <div class="spb-insight">
+                <p class="spb-insight-label">PM Instinct Behind It</p>
+                <p class="spb-insight-text">"When you're the workaround people use because the real tool doesn't exist, that's a product gap worth filling. The key insight from talking to people was that they didn't distrust the recommendation, they just didn't know how to evaluate it. Explaining the 'why' in plain language is what actually builds confidence, so I made it the centerpiece rather than an afterthought."</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <!-- COLLAB CARD -->
         <a href="https://www.linkedin.com/in/vivfeng" target="_blank" rel="noopener noreferrer" class="side-project-card" data-analytics-event="contact_cta_clicked" data-analytics-location="projects_collab_card" style="background:var(--ink); cursor:pointer; text-decoration:none; display:block;">
