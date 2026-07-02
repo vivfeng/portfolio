@@ -470,7 +470,7 @@
             <div class="side-project-body-inner">
               <div class="spb-demo">
                 <p class="spb-demo-label">Demo</p>
-                <img src="routa-demo.gif" alt="RideRouta demo — describing a ride in plain English and generating a route with map, elevation, and Strava export" loading="lazy" />
+                <img src="routa-demo.gif" alt="RideRouta demo — describing a ride in plain English and generating a route with map, elevation, and Strava export" loading="lazy" onerror="this.style.display='none'; console.warn('[Image] Failed to load:', this.src);" />
               </div>
               <div>
                 <p class="spb-section-label">The Problem</p>
@@ -550,7 +550,7 @@
             <div class="side-project-body-inner">
               <div class="spb-demo">
                 <p class="spb-demo-label">Demo</p>
-                <img src="findmyski-demo.gif" alt="FindMySki demo — walking through the 7-question intake and receiving a personalized ski recommendation" loading="lazy" />
+                <img src="findmyski-demo.gif" alt="FindMySki demo — walking through the 7-question intake and receiving a personalized ski recommendation" loading="lazy" onerror="this.style.display='none'; console.warn('[Image] Failed to load:', this.src);" />
               </div>
               <div>
                 <p class="spb-section-label">The Problem</p>
@@ -605,7 +605,7 @@
 
       <div class="about-grid">
         <div class="about-photo">
-          <img src="Headshot_VivianFeng_bw.jpg" alt="Vivian Feng" loading="lazy" style="width:100%; display:block; filter:grayscale(100%);" />
+          <img src="Headshot_VivianFeng_bw.jpg" alt="Vivian Feng" loading="lazy" style="width:100%; display:block; filter:grayscale(100%);" onerror="this.style.display='none'; console.warn('[Image] Failed to load:', this.src);" />
         </div>
         <div class="about-text">
           <p>
@@ -722,37 +722,61 @@
       (window.vaq = window.vaq || []).push(arguments);
     };
   </script>
-  <script defer src="/_vercel/insights/script.js"></script>
+  <script defer src="/_vercel/insights/script.js" onerror="console.warn('[Analytics] Failed to load Vercel Analytics script — events will not be tracked.')"></script>
   <script>
     const nav = document.getElementById('nav');
 
     function trackEvent(name, properties = {}) {
-      window.va('event', { name, data: properties });
+      try {
+        if (typeof name !== 'string' || !name) {
+          console.warn('[Analytics] trackEvent called without a valid event name:', name);
+          return;
+        }
+        window.va('event', { name, data: properties });
+      } catch (err) {
+        console.warn('[Analytics] Failed to track event:', name, err);
+      }
     }
 
     document.querySelectorAll('[data-analytics-event]').forEach((element) => {
       element.addEventListener('click', () => {
-        const { analyticsEvent, analyticsChannel, analyticsLocation, analyticsProject, analyticsTarget } = element.dataset;
-        const properties = {};
+        try {
+          const { analyticsEvent, analyticsChannel, analyticsLocation, analyticsProject, analyticsTarget } = element.dataset;
+          const properties = {};
 
-        if (analyticsChannel) properties.channel = analyticsChannel;
-        if (analyticsLocation) properties.location = analyticsLocation;
-        if (analyticsProject) properties.project = analyticsProject;
-        if (analyticsTarget) properties.target = analyticsTarget;
+          if (analyticsChannel) properties.channel = analyticsChannel;
+          if (analyticsLocation) properties.location = analyticsLocation;
+          if (analyticsProject) properties.project = analyticsProject;
+          if (analyticsTarget) properties.target = analyticsTarget;
 
-        trackEvent(analyticsEvent, properties);
+          trackEvent(analyticsEvent, properties);
+        } catch (err) {
+          console.warn('[Analytics] Error in click handler:', err);
+        }
       });
     });
 
     window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 20);
+      try {
+        nav.classList.toggle('scrolled', window.scrollY > 20);
+      } catch (err) {
+        console.warn('[UI] Error in scroll handler:', err);
+      }
     });
 
     function toggleProject(card) {
-      const isOpen = card.classList.contains('open');
-      card.classList.toggle('open');
-      if (!isOpen && card.dataset.projectName) {
-        trackEvent('project_opened', { project: card.dataset.projectName });
+      if (!card || !card.classList) {
+        console.warn('[UI] toggleProject called with an invalid element:', card);
+        return;
+      }
+      try {
+        const isOpen = card.classList.contains('open');
+        card.classList.toggle('open');
+        if (!isOpen && card.dataset.projectName) {
+          trackEvent('project_opened', { project: card.dataset.projectName });
+        }
+      } catch (err) {
+        console.warn('[UI] Error toggling project card:', err);
       }
     }
   </script>
