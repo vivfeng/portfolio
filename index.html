@@ -723,62 +723,12 @@
     };
   </script>
   <script defer src="/_vercel/insights/script.js" onerror="console.warn('[Analytics] Failed to load Vercel Analytics script — events will not be tracked.')"></script>
+  <script src="js/analytics.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/projects.js"></script>
   <script>
-    const nav = document.getElementById('nav');
-
-    function trackEvent(name, properties = {}) {
-      try {
-        if (typeof name !== 'string' || !name) {
-          console.warn('[Analytics] trackEvent called without a valid event name:', name);
-          return;
-        }
-        window.va('event', { name, data: properties });
-      } catch (err) {
-        console.warn('[Analytics] Failed to track event:', name, err);
-      }
-    }
-
-    document.querySelectorAll('[data-analytics-event]').forEach((element) => {
-      element.addEventListener('click', () => {
-        try {
-          const { analyticsEvent, analyticsChannel, analyticsLocation, analyticsProject, analyticsTarget } = element.dataset;
-          const properties = {};
-
-          if (analyticsChannel) properties.channel = analyticsChannel;
-          if (analyticsLocation) properties.location = analyticsLocation;
-          if (analyticsProject) properties.project = analyticsProject;
-          if (analyticsTarget) properties.target = analyticsTarget;
-
-          trackEvent(analyticsEvent, properties);
-        } catch (err) {
-          console.warn('[Analytics] Error in click handler:', err);
-        }
-      });
-    });
-
-    window.addEventListener('scroll', () => {
-      try {
-        nav.classList.toggle('scrolled', window.scrollY > 20);
-      } catch (err) {
-        console.warn('[UI] Error in scroll handler:', err);
-      }
-    });
-
-    function toggleProject(card) {
-      if (!card || !card.classList) {
-        console.warn('[UI] toggleProject called with an invalid element:', card);
-        return;
-      }
-      try {
-        const isOpen = card.classList.contains('open');
-        card.classList.toggle('open');
-        if (!isOpen && card.dataset.projectName) {
-          trackEvent('project_opened', { project: card.dataset.projectName });
-        }
-      } catch (err) {
-        console.warn('[UI] Error toggling project card:', err);
-      }
-    }
+    initAnalyticsListeners();
+    initNavScroll(document.getElementById('nav'));
   </script>
 
 </body>
