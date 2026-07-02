@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none';" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <title>Vivian Feng - Product Manager</title>
   <meta name="description" content="Vivian Feng is a product manager building AI, consumer, and marketplace products. Explore her personal portfolio, recent experience, and side projects." />
   <meta name="author" content="Vivian Feng" />
@@ -457,7 +459,7 @@
       <div class="side-projects-grid">
 
         <!-- BIKE ROUTE BUILDER -->
-        <div class="side-project-card" data-project-name="routa" onclick="toggleProject(this)">
+        <div class="side-project-card" data-project-name="routa">
           <div class="side-project-header">
             <div class="side-project-left">
               <p class="side-project-tag">Route Planning · NLP · Mapping</p>
@@ -486,7 +488,7 @@
                   <span class="spb-tag">Strava API</span>
                   <span class="spb-tag">GPX Export</span>
                 </div>
-                <a href="https://riderouta.org" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" data-analytics-event="project_link_clicked" data-analytics-project="routa" data-analytics-target="site" style="display:inline-flex;align-items:center;gap:0.4rem;margin-top:1rem;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:0.15rem;">
+                <a href="https://riderouta.org" target="_blank" rel="noopener noreferrer" data-analytics-event="project_link_clicked" data-analytics-project="routa" data-analytics-target="site" style="display:inline-flex;align-items:center;gap:0.4rem;margin-top:1rem;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:0.15rem;">
                   Visit riderouta.org ↗
                 </a>
               </div>
@@ -499,7 +501,7 @@
         </div>
 
         <!-- EMISSION FACTOR COMPARATOR -->
-        <div class="side-project-card" data-project-name="emissions" onclick="toggleProject(this)">
+        <div class="side-project-card" data-project-name="emissions">
           <div class="side-project-header">
             <div class="side-project-left">
               <p class="side-project-tag">Research Tool · Sustainability · Data</p>
@@ -523,7 +525,7 @@
                   <span class="spb-tag">Data Visualization</span>
                   <span class="spb-tag">Sustainability</span>
                 </div>
-                <a href="https://vivfeng.github.io/emissions_sources/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" data-analytics-event="project_link_clicked" data-analytics-project="emissions" data-analytics-target="site" style="display:inline-flex;align-items:center;gap:0.4rem;margin-top:1rem;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:0.15rem;">
+                <a href="https://vivfeng.github.io/emissions_sources/" target="_blank" rel="noopener noreferrer" data-analytics-event="project_link_clicked" data-analytics-project="emissions" data-analytics-target="site" style="display:inline-flex;align-items:center;gap:0.4rem;margin-top:1rem;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:0.15rem;">
                   View the comparator ↗
                 </a>
               </div>
@@ -537,7 +539,7 @@
 
 
         <!-- SKI FINDER -->
-        <div class="side-project-card" data-project-name="findmyski" onclick="toggleProject(this)">
+        <div class="side-project-card" data-project-name="findmyski">
           <div class="side-project-header">
             <div class="side-project-left">
               <p class="side-project-tag">AI Recommender · React · RAG</p>
@@ -565,7 +567,7 @@
                   <span class="spb-tag">RAG</span>
                   <span class="spb-tag">Web App</span>
                 </div>
-                <a href="https://findmyskis.org" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" data-analytics-event="project_link_clicked" data-analytics-project="findmyski" data-analytics-target="site" style="display:inline-flex;align-items:center;gap:0.4rem;margin-top:1rem;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:0.15rem;">
+                <a href="https://findmyskis.org" target="_blank" rel="noopener noreferrer" data-analytics-event="project_link_clicked" data-analytics-project="findmyski" data-analytics-target="site" style="display:inline-flex;align-items:center;gap:0.4rem;margin-top:1rem;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:0.15rem;">
                   Visit findmyskis.org ↗
                 </a>
               </div>
@@ -710,26 +712,17 @@
       </div>
     </div>
   </section>
-  </div>
 
   <footer>
     <span>© 2026 Vivian Feng</span>
     <span>San Francisco, CA</span>
   </footer>
 
-  <script>
-    window.va = window.va || function () {
-      (window.vaq = window.vaq || []).push(arguments);
-    };
-  </script>
-  <script defer src="/_vercel/insights/script.js" onerror="console.warn('[Analytics] Failed to load Vercel Analytics script — events will not be tracked.')"></script>
   <script src="js/analytics.js"></script>
   <script src="js/nav.js"></script>
   <script src="js/projects.js"></script>
-  <script>
-    initAnalyticsListeners();
-    initNavScroll(document.getElementById('nav'));
-  </script>
+  <script src="scripts.js"></script>
+  <script defer src="/_vercel/insights/script.js"></script>
 
 </body>
 </html>
