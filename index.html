@@ -38,6 +38,52 @@
       --sans: 'DM Sans', sans-serif;
     }
 
+    /* ─── SHARED UTILITIES ─── */
+    .mono-label {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .body-text {
+      font-size: 0.88rem;
+      color: var(--ink-light);
+      line-height: 1.7;
+    }
+    .card-base {
+      background: var(--card-bg);
+      transition: background 0.2s;
+    }
+    .card-base:hover { background: #E3DFD7; }
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 1rem;
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 0.15rem;
+    }
+    .project-role {
+      color: var(--ink-light);
+      margin-bottom: 0.35rem;
+      letter-spacing: 0.08em;
+    }
+    .recognition-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.15rem;
+      padding: 0.75rem 0;
+    }
+    .recognition-name { font-size: 0.85rem; font-weight: 400; }
+    .recognition-year { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+    .recognition-desc { font-size: 0.82rem; color: var(--ink-light); }
+
     html { scroll-behavior: smooth; }
 
     body {
@@ -112,17 +158,15 @@
 
     .projects-grid { display: grid; gap: 1.5px; }
     .project-card {
-      background: var(--card-bg); padding: 2.5rem;
+      padding: 2.5rem;
       display: grid; grid-template-columns: 1fr; gap: 1rem;
-      transition: background 0.2s;
     }
-    .project-card:hover { background: #E3DFD7; }
-    .project-tag { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.65rem; }
+    .project-tag { color: var(--accent); margin-bottom: 0.65rem; }
     .project-title { font-family: var(--serif); font-size: 1.6rem; font-weight: 400; margin-bottom: 0.75rem; line-height: 1.2; }
-    .project-desc { font-size: 0.9rem; color: var(--ink-light); line-height: 1.7; max-width: 680px; }
+    .project-desc { font-size: 0.9rem; max-width: 680px; }
     .project-meta { margin-top: 1.25rem; display: flex; gap: 2rem; flex-wrap: wrap; }
     .meta-item { display: flex; flex-direction: column; gap: 0.2rem; }
-    .meta-label { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-light); }
+    .meta-label { font-size: 0.58rem; color: var(--ink-light); }
     .meta-value { font-size: 0.82rem; font-weight: 400; }
 
     .experience-list { display: flex; flex-direction: column; }
@@ -130,7 +174,7 @@
     .exp-item:first-child { border-top: 1px solid var(--rule); }
     .exp-period { font-family: var(--mono); font-size: 0.68rem; color: var(--ink-light); letter-spacing: 0.06em; padding-top: 0.2rem; }
     .exp-role { font-family: var(--serif); font-size: 1.25rem; font-weight: 400; margin-bottom: 0.2rem; }
-    .exp-company { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
+    .exp-company { font-size: 0.7rem; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 0.75rem; }
     .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
     .exp-bullets li { font-size: 0.88rem; color: var(--ink-light); line-height: 1.65; padding-left: 1rem; position: relative; }
     .exp-bullets li::before { content: '-'; position: absolute; left: 0; color: var(--rule); }
@@ -138,12 +182,12 @@
     .about-grid { display: grid; grid-template-columns: 280px 1fr 1fr; gap: 3rem; align-items: start; }
     .about-text { font-size: 1rem; line-height: 1.85; color: var(--ink-light); }
     .about-text p + p { margin-top: 1.25rem; }
-    .skills-section-title { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 1rem; }
+    .skills-section-title { letter-spacing: 0.16em; color: var(--ink-light); margin-bottom: 1rem; }
     .skills-list { display: flex; flex-direction: column; margin-bottom: 2rem; }
     .skill-row { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; border-bottom: 1px solid var(--rule); font-size: 0.85rem; }
     .skill-row:first-child { border-top: 1px solid var(--rule); }
     .tag-cloud { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .tag { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.1em; padding: 0.35rem 0.7rem; border: 1px solid var(--rule); color: var(--ink-light); }
+    .tag { letter-spacing: 0.1em; padding: 0.35rem 0.7rem; border: 1px solid var(--rule); color: var(--ink-light); }
 
     #contact { background: var(--ink); color: var(--bg); }
     #contact .section-num { color: #8FA682; }
@@ -187,12 +231,6 @@
     /* ─── SIDE PROJECTS ─── */
     .side-projects-grid { display: grid; gap: 1.5px; }
 
-    .side-project-card {
-      background: var(--card-bg);
-      transition: background 0.2s;
-    }
-    .side-project-card:hover { background: #E3DFD7; }
-
     .side-project-header {
       padding: 2rem 2.5rem;
       display: grid;
@@ -205,10 +243,6 @@
     .side-project-left {}
 
     .side-project-tag {
-      font-family: var(--mono);
-      font-size: 0.62rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
       color: var(--accent);
       margin-bottom: 0.5rem;
     }
@@ -237,10 +271,8 @@
     }
     .expand-toggle:hover { border-color: var(--accent); }
     .expand-label {
-      font-family: var(--mono);
       font-size: 0.58rem;
       letter-spacing: 0.12em;
-      text-transform: uppercase;
       color: var(--ink-light);
       transition: color 0.25s;
     }
@@ -293,17 +325,13 @@
     }
 
     .spb-section-label {
-      font-family: var(--mono);
       font-size: 0.6rem;
       letter-spacing: 0.16em;
-      text-transform: uppercase;
       color: var(--ink-light);
       margin-bottom: 0.65rem;
     }
 
     .spb-text {
-      font-size: 0.88rem;
-      color: var(--ink-light);
       line-height: 1.75;
     }
 
@@ -314,14 +342,7 @@
       margin-top: 0.65rem;
     }
 
-    .spb-tag {
-      font-family: var(--mono);
-      font-size: 0.6rem;
-      letter-spacing: 0.1em;
-      padding: 0.3rem 0.65rem;
-      border: 1px solid var(--rule);
-      color: var(--ink-light);
-    }
+
 
     .spb-insight {
       grid-column: 1 / -1;
@@ -332,18 +353,12 @@
     }
 
     .spb-insight-label {
-      font-family: var(--mono);
       font-size: 0.58rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
       color: var(--accent);
       margin-bottom: 0.4rem;
     }
 
     .spb-insight-text {
-      font-size: 0.88rem;
-      color: var(--ink-light);
-      line-height: 1.7;
       font-style: italic;
     }
 
@@ -359,10 +374,7 @@
     }
 
     .spb-demo-label {
-      font-family: var(--mono);
       font-size: 0.58rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
       color: var(--ink-light);
       margin-bottom: 0.65rem;
     }
@@ -411,30 +423,30 @@
 
       <div class="projects-grid">
 
-        <div class="project-card">
+        <div class="project-card card-base">
           <div>
-            <p class="project-tag">Arcade AI · Feb 2025 – Present</p>
-            <p class="project-tag" style="color:var(--ink-light); margin-bottom:0.35rem; letter-spacing:0.08em;">Product Manager, Generative AI</p>
+            <p class="project-tag mono-label">Arcade AI · Feb 2025 – Present</p>
+            <p class="project-tag mono-label project-role">Product Manager, Generative AI</p>
             <h3 class="project-title">AI-to-Commerce Marketplace</h3>
-            <p class="project-desc">Increased prompt engagement from 6% to 40% through iterative A/B testing and onboarding experiments. Led roadmap and prioritization for the creation experience, grounded in user interviews and experiment results.</p>
+            <p class="project-desc body-text">Increased prompt engagement from 6% to 40% through iterative A/B testing and onboarding experiments. Led roadmap and prioritization for the creation experience, grounded in user interviews and experiment results.</p>
           </div>
         </div>
 
-        <div class="project-card">
+        <div class="project-card card-base">
           <div>
-            <p class="project-tag">J.P. Morgan · Jan 2024 – Feb 2025</p>
-            <p class="project-tag" style="color:var(--ink-light); margin-bottom:0.35rem; letter-spacing:0.08em;">Product Manager, AI and ML</p>
+            <p class="project-tag mono-label">J.P. Morgan · Jan 2024 – Feb 2025</p>
+            <p class="project-tag mono-label project-role">Product Manager, AI and ML</p>
             <h3 class="project-title">Enterprise LLM Search Platform</h3>
-            <p class="project-desc">Owned an in-house LLM enabling real-time search across 12,000 internal documents. Reduced model evaluation cycle time by 16x.</p>
+            <p class="project-desc body-text">Owned an in-house LLM enabling real-time search across 12,000 internal documents. Reduced model evaluation cycle time by 16x.</p>
           </div>
         </div>
 
-        <div class="project-card">
+        <div class="project-card card-base">
           <div>
-            <p class="project-tag">J.P. Morgan · Aug 2023 – Jan 2024</p>
-            <p class="project-tag" style="color:var(--ink-light); margin-bottom:0.35rem; letter-spacing:0.08em;">Product Manager, Developer Experience</p>
+            <p class="project-tag mono-label">J.P. Morgan · Aug 2023 – Jan 2024</p>
+            <p class="project-tag mono-label project-role">Product Manager, Developer Experience</p>
             <h3 class="project-title">0-to-1 LLM Product Launch</h3>
-            <p class="project-desc">Independently built a document search LLM using LangChain, Chroma, and the OpenAI API, taking it from discovery through development to handoff in 4 months.</p>
+            <p class="project-desc body-text">Independently built a document search LLM using LangChain, Chroma, and the OpenAI API, taking it from discovery through development to handoff in 4 months.</p>
           </div>
         </div>
 
@@ -457,79 +469,79 @@
       <div class="side-projects-grid">
 
         <!-- BIKE ROUTE BUILDER -->
-        <div class="side-project-card" data-project-name="routa" onclick="toggleProject(this)">
+        <div class="side-project-card card-base" data-project-name="routa" onclick="toggleProject(this)">
           <div class="side-project-header">
             <div class="side-project-left">
-              <p class="side-project-tag">Route Planning · NLP · Mapping</p>
+              <p class="side-project-tag mono-label">Route Planning · NLP · Mapping</p>
               <h3 class="side-project-title">RideRouta</h3>
               <p class="side-project-subtitle">A ride planning tool that lets road cyclists create routes by describing their ideal ride in plain English or using a form for more control</p>
             </div>
-            <div class="expand-toggle"><span class="expand-label">View details</span><div class="expand-icon">+</div></div>
+            <div class="expand-toggle"><span class="expand-label mono-label">View details</span><div class="expand-icon">+</div></div>
           </div>
           <div class="side-project-body">
             <div class="side-project-body-inner">
               <div class="spb-demo">
-                <p class="spb-demo-label">Demo</p>
+                <p class="spb-demo-label mono-label">Demo</p>
                 <img src="routa-demo.gif" alt="RideRouta demo — describing a ride in plain English and generating a route with map, elevation, and Strava export" loading="lazy" />
               </div>
               <div>
-                <p class="spb-section-label">The Problem</p>
-                <p class="spb-text">Strava and most GPX tools optimize for distance and connectivity, not ride quality. For road biking specifically, that means you regularly get routed up punishing climbs you didn't ask for, through intersections with heavy car traffic, or onto roads with no shoulder. Every time I wanted to explore a new route around SF I'd spend 30+ minutes in Strava manually adjusting, cross-referencing Google Maps, and checking Street View just to sanity-check the road conditions. It was a whole process before I even got on the bike.</p>
+                <p class="spb-section-label mono-label">The Problem</p>
+                <p class="spb-text body-text">Strava and most GPX tools optimize for distance and connectivity, not ride quality. For road biking specifically, that means you regularly get routed up punishing climbs you didn't ask for, through intersections with heavy car traffic, or onto roads with no shoulder. Every time I wanted to explore a new route around SF I'd spend 30+ minutes in Strava manually adjusting, cross-referencing Google Maps, and checking Street View just to sanity-check the road conditions. It was a whole process before I even got on the bike.</p>
               </div>
               <div>
-                <p class="spb-section-label">What I Built</p>
-                <p class="spb-text">A web app where you describe your ideal ride in plain English or use a form for more control, and it generates a route optimized for road cycling on lower traffic streets with manageable elevation. It connects directly to Strava, exports to GPX for Garmin, and shows elevation profiles so you know what you're getting into before you clip in. The whole point was to eliminate the 30-minute pre-ride planning ritual and just get out the door.</p>
+                <p class="spb-section-label mono-label">What I Built</p>
+                <p class="spb-text body-text">A web app where you describe your ideal ride in plain English or use a form for more control, and it generates a route optimized for road cycling on lower traffic streets with manageable elevation. It connects directly to Strava, exports to GPX for Garmin, and shows elevation profiles so you know what you're getting into before you clip in. The whole point was to eliminate the 30-minute pre-ride planning ritual and just get out the door.</p>
                 <div class="spb-stack">
-                  <span class="spb-tag">React</span>
-                  <span class="spb-tag">NLP</span>
-                  <span class="spb-tag">Mapping API</span>
-                  <span class="spb-tag">Strava API</span>
-                  <span class="spb-tag">GPX Export</span>
+                  <span class="tag mono-label">React</span>
+                  <span class="tag mono-label">NLP</span>
+                  <span class="tag mono-label">Mapping API</span>
+                  <span class="tag mono-label">Strava API</span>
+                  <span class="tag mono-label">GPX Export</span>
                 </div>
-                <a href="https://riderouta.org" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" data-analytics-event="project_link_clicked" data-analytics-project="routa" data-analytics-target="site" style="display:inline-flex;align-items:center;gap:0.4rem;margin-top:1rem;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:0.15rem;">
+                <a href="https://riderouta.org" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" data-analytics-event="project_link_clicked" data-analytics-project="routa" data-analytics-target="site" class="project-link">
                   Visit riderouta.org ↗
                 </a>
               </div>
               <div class="spb-insight">
-                <p class="spb-insight-label">PM Instinct Behind It</p>
-                <p class="spb-insight-text">"The temptation was to build a general cycling tool, but I knew from my own experience that road biking has very specific needs that are different from mountain biking or commuting. Scoping it tightly to one persona in one geography made the product actually useful rather than mediocre for everyone. I also learned a lot about the tradeoffs between routing APIs, elevation data sources, and what 'low traffic' actually means when you try to operationalize it."</p>
+                <p class="spb-insight-label mono-label">PM Instinct Behind It</p>
+                <p class="spb-insight-text body-text">"The temptation was to build a general cycling tool, but I knew from my own experience that road biking has very specific needs that are different from mountain biking or commuting. Scoping it tightly to one persona in one geography made the product actually useful rather than mediocre for everyone. I also learned a lot about the tradeoffs between routing APIs, elevation data sources, and what 'low traffic' actually means when you try to operationalize it."</p>
               </div>
             </div>
           </div>
         </div>
 
         <!-- EMISSION FACTOR COMPARATOR -->
-        <div class="side-project-card" data-project-name="emissions" onclick="toggleProject(this)">
+        <div class="side-project-card card-base" data-project-name="emissions" onclick="toggleProject(this)">
           <div class="side-project-header">
             <div class="side-project-left">
-              <p class="side-project-tag">Research Tool · Sustainability · Data</p>
+              <p class="side-project-tag mono-label">Research Tool · Sustainability · Data</p>
               <h3 class="side-project-title">Emission Factor Comparator</h3>
               <p class="side-project-subtitle">An interactive tool for sustainability professionals to compare carbon emission factors across EPA, DEFRA, and GHG Protocol databases and understand where the numbers actually come from</p>
             </div>
-            <div class="expand-toggle"><span class="expand-label">View details</span><div class="expand-icon">+</div></div>
+            <div class="expand-toggle"><span class="expand-label mono-label">View details</span><div class="expand-icon">+</div></div>
           </div>
           <div class="side-project-body">
             <div class="side-project-body-inner">
               <div>
-                <p class="spb-section-label">The Problem</p>
-                <p class="spb-text">Carbon accounting teams rely on emission factor databases to estimate their footprint, but the three major sources — EPA, DEFRA, and GHG Protocol — often disagree significantly. Some activities show nearly 99% variance between sources, and it's not obvious why. Worse, some databases cite each other without adding independent data, creating circular sourcing that inflates false confidence. Teams end up picking a database without understanding the tradeoffs.</p>
+                <p class="spb-section-label mono-label">The Problem</p>
+                <p class="spb-text body-text">Carbon accounting teams rely on emission factor databases to estimate their footprint, but the three major sources — EPA, DEFRA, and GHG Protocol — often disagree significantly. Some activities show nearly 99% variance between sources, and it's not obvious why. Worse, some databases cite each other without adding independent data, creating circular sourcing that inflates false confidence. Teams end up picking a database without understanding the tradeoffs.</p>
               </div>
               <div>
-                <p class="spb-section-label">What I Built</p>
-                <p class="spb-text">An interactive dashboard that compares 21 activities across 8 multi-source datasets spanning 5 countries. It maps citation relationships to expose circular sourcing, shows range comparisons across databases, and compares activity-based vs. spend-based calculation methods — revealing gaps as large as 3.3x depending on methodology. The tool includes a recommended stack for which database to use and when, grounded in geography, methodology, and data independence.</p>
+                <p class="spb-section-label mono-label">What I Built</p>
+                <p class="spb-text body-text">An interactive dashboard that compares 21 activities across 8 multi-source datasets spanning 5 countries. It maps citation relationships to expose circular sourcing, shows range comparisons across databases, and compares activity-based vs. spend-based calculation methods — revealing gaps as large as 3.3x depending on methodology. The tool includes a recommended stack for which database to use and when, grounded in geography, methodology, and data independence.</p>
                 <div class="spb-stack">
-                  <span class="spb-tag">Next.js</span>
-                  <span class="spb-tag">React</span>
-                  <span class="spb-tag">Data Visualization</span>
-                  <span class="spb-tag">Sustainability</span>
+                  <span class="tag mono-label">Next.js</span>
+                  <span class="tag mono-label">React</span>
+                  <span class="tag mono-label">Data Visualization</span>
+                  <span class="tag mono-label">Sustainability</span>
                 </div>
-                <a href="https://vivfeng.github.io/emissions_sources/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" data-analytics-event="project_link_clicked" data-analytics-project="emissions" data-analytics-target="site" style="display:inline-flex;align-items:center;gap:0.4rem;margin-top:1rem;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:0.15rem;">
+                <a href="https://vivfeng.github.io/emissions_sources/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" data-analytics-event="project_link_clicked" data-analytics-project="emissions" data-analytics-target="site" class="project-link">
                   View the comparator ↗
                 </a>
               </div>
               <div class="spb-insight">
-                <p class="spb-insight-label">PM Instinct Behind It</p>
-                <p class="spb-insight-text">"Most sustainability tools present emission factors as settled numbers, but the real problem is that practitioners don't know whether to trust them or which source to pick. I focused on making the provenance and methodology visible rather than just showing the numbers — because understanding where data comes from is what actually enables better decisions."</p>
+                <p class="spb-insight-label mono-label">PM Instinct Behind It</p>
+                <p class="spb-insight-text body-text">"Most sustainability tools present emission factors as settled numbers, but the real problem is that practitioners don't know whether to trust them or which source to pick. I focused on making the provenance and methodology visible rather than just showing the numbers — because understanding where data comes from is what actually enables better decisions."</p>
               </div>
             </div>
           </div>
@@ -537,41 +549,41 @@
 
 
         <!-- SKI FINDER -->
-        <div class="side-project-card" data-project-name="findmyski" onclick="toggleProject(this)">
+        <div class="side-project-card card-base" data-project-name="findmyski" onclick="toggleProject(this)">
           <div class="side-project-header">
             <div class="side-project-left">
-              <p class="side-project-tag">AI Recommender · React · RAG</p>
+              <p class="side-project-tag mono-label">AI Recommender · React · RAG</p>
               <h3 class="side-project-title">FindMySki</h3>
               <p class="side-project-subtitle">An AI-powered ski recommender that walks you through a short intake, then explains exactly which ski to buy and why, drawing on curated expert reviews and retailer data</p>
             </div>
-            <div class="expand-toggle"><span class="expand-label">View details</span><div class="expand-icon">+</div></div>
+            <div class="expand-toggle"><span class="expand-label mono-label">View details</span><div class="expand-icon">+</div></div>
           </div>
           <div class="side-project-body">
             <div class="side-project-body-inner">
               <div class="spb-demo">
-                <p class="spb-demo-label">Demo</p>
+                <p class="spb-demo-label mono-label">Demo</p>
                 <img src="findmyski-demo.gif" alt="FindMySki demo — walking through the 7-question intake and receiving a personalized ski recommendation" loading="lazy" />
               </div>
               <div>
-                <p class="spb-section-label">The Problem</p>
-                <p class="spb-text">As someone who skis a lot, I kept getting asked by friends what ski to buy. I'd give an opinion but realized I was just guessing based on my own experience. Ski selection is genuinely complex. It depends on ability level, skiing style, body type, terrain preference, and budget. Existing tools either oversimplify to a few dropdowns or dump a spec sheet on you with no guidance on what actually matters.</p>
+                <p class="spb-section-label mono-label">The Problem</p>
+                <p class="spb-text body-text">As someone who skis a lot, I kept getting asked by friends what ski to buy. I'd give an opinion but realized I was just guessing based on my own experience. Ski selection is genuinely complex. It depends on ability level, skiing style, body type, terrain preference, and budget. Existing tools either oversimplify to a few dropdowns or dump a spec sheet on you with no guidance on what actually matters.</p>
               </div>
               <div>
-                <p class="spb-section-label">What I Built</p>
-                <p class="spb-text">A web app that walks you through a short intake about your ability, goals, body type, and budget. It uses RAG to pull from a curated knowledge base of expert ski reviews (OutdoorGearLab, SKI Magazine, Blister, Switchback Travel, and more), then uses an LLM to synthesize a personalized recommendation with a plain-English explanation. I intentionally made the reasoning more prominent than the recommendation itself, because that's what actually helps someone feel confident in the purchase. Results can be shared via link or emailed directly.</p>
+                <p class="spb-section-label mono-label">What I Built</p>
+                <p class="spb-text body-text">A web app that walks you through a short intake about your ability, goals, body type, and budget. It uses RAG to pull from a curated knowledge base of expert ski reviews (OutdoorGearLab, SKI Magazine, Blister, Switchback Travel, and more), then uses an LLM to synthesize a personalized recommendation with a plain-English explanation. I intentionally made the reasoning more prominent than the recommendation itself, because that's what actually helps someone feel confident in the purchase. Results can be shared via link or emailed directly.</p>
                 <div class="spb-stack">
-                  <span class="spb-tag">React</span>
-                  <span class="spb-tag">Generative AI</span>
-                  <span class="spb-tag">RAG</span>
-                  <span class="spb-tag">Web App</span>
+                  <span class="tag mono-label">React</span>
+                  <span class="tag mono-label">Generative AI</span>
+                  <span class="tag mono-label">RAG</span>
+                  <span class="tag mono-label">Web App</span>
                 </div>
-                <a href="https://findmyskis.org" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" data-analytics-event="project_link_clicked" data-analytics-project="findmyski" data-analytics-target="site" style="display:inline-flex;align-items:center;gap:0.4rem;margin-top:1rem;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:0.15rem;">
+                <a href="https://findmyskis.org" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" data-analytics-event="project_link_clicked" data-analytics-project="findmyski" data-analytics-target="site" class="project-link">
                   Visit findmyskis.org ↗
                 </a>
               </div>
               <div class="spb-insight">
-                <p class="spb-insight-label">PM Instinct Behind It</p>
-                <p class="spb-insight-text">"When you're the workaround people use because the real tool doesn't exist, that's a product gap worth filling. The key insight from talking to people was that they didn't distrust the recommendation, they just didn't know how to evaluate it. Explaining the 'why' in plain language is what actually builds confidence, so I made it the centerpiece rather than an afterthought."</p>
+                <p class="spb-insight-label mono-label">PM Instinct Behind It</p>
+                <p class="spb-insight-text body-text">"When you're the workaround people use because the real tool doesn't exist, that's a product gap worth filling. The key insight from talking to people was that they didn't distrust the recommendation, they just didn't know how to evaluate it. Explaining the 'why' in plain language is what actually builds confidence, so I made it the centerpiece rather than an afterthought."</p>
               </div>
             </div>
           </div>
@@ -623,7 +635,7 @@
         </div>
 
         <div>
-          <p class="skills-section-title">Product</p>
+          <p class="skills-section-title mono-label">Product</p>
           <div class="skills-list">
             <div class="skill-row"><span>Product Strategy &amp; Roadmapping</span></div>
             <div class="skill-row"><span>0-to-1 Product Development</span></div>
@@ -633,7 +645,7 @@
             <div class="skill-row"><span>Cross-Functional Leadership</span></div>
             <div class="skill-row"><span>Technical Product Specifications</span></div>
           </div>
-          <p class="skills-section-title" style="margin-top:1.5rem;">Technical</p>
+          <p class="skills-section-title mono-label" style="margin-top:1.5rem;">Technical</p>
           <div class="tag-cloud">
             <span class="tag">Python</span>
             <span class="tag">SQL</span>
@@ -646,17 +658,17 @@
             <span class="tag">DatoCMS</span>
             <span class="tag">Django</span>
           </div>
-          <p class="skills-section-title" style="margin-top:1.5rem;">Community & Recognition</p>
+          <p class="skills-section-title mono-label" style="margin-top:1.5rem;">Community & Recognition</p>
           <div class="skills-list">
-            <div class="skill-row" style="flex-direction:column; align-items:flex-start; gap:0.15rem; padding:0.75rem 0;">
-              <span style="font-size:0.85rem; font-weight:400;">Climatebase Fellow, Cohort 6</span>
-              <span style="font-family:var(--mono); font-size:0.6rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent);">2024</span>
-              <span style="font-size:0.82rem; color:var(--ink-light);">Selected for a climate career accelerator focused on carbon accounting and climate software.</span>
+            <div class="skill-row recognition-item">
+              <span class="recognition-name">Climatebase Fellow, Cohort 6</span>
+              <span class="recognition-year">2024</span>
+              <span class="recognition-desc">Selected for a climate career accelerator focused on carbon accounting and climate software.</span>
             </div>
-            <div class="skill-row" style="flex-direction:column; align-items:flex-start; gap:0.15rem; padding:0.75rem 0;">
-              <span style="font-size:0.85rem; font-weight:400;">1st Place, Global Product Pitch Competition</span>
-              <span style="font-family:var(--mono); font-size:0.6rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent);">J.P. Morgan &middot; 2023</span>
-              <span style="font-size:0.82rem; color:var(--ink-light);">Won internationally across all J.P. Morgan product teams with an LLM MVP design.</span>
+            <div class="skill-row recognition-item">
+              <span class="recognition-name">1st Place, Global Product Pitch Competition</span>
+              <span class="recognition-year">J.P. Morgan &middot; 2023</span>
+              <span class="recognition-desc">Won internationally across all J.P. Morgan product teams with an LLM MVP design.</span>
             </div>
           </div>
         </div>
